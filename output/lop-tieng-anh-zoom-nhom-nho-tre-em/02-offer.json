@@ -1,0 +1,178 @@
+{
+  "slug": "lop-tieng-anh-zoom-nhom-nho-tre-em",
+  "name": "Lớp Tiếng Anh Zoom Nhóm Nhỏ – Bé Tự Tin Giao Tiếp Sau 10 Buổi",
+  "subtitle": "Học nhóm nhỏ tối đa 6 bé/lớp qua Zoom, không cần đưa đón, tặng trọn bộ sách điện tử + phần mềm học tiếng Anh trọn đời",
+  "date": "2026-07-13",
+  "brand": {
+    "company": "[Tên trung tâm/thương hiệu của anh/chị]",
+    "trainer": "[Tên giáo viên phụ trách]",
+    "program_name": "English Zoom Kids – Nhóm Nhỏ",
+    "tagline": "Con tự tin nói tiếng Anh, ba mẹ không mất thời gian đưa đón"
+  },
+
+  "anchor": {
+    "segment": "Phụ huynh có con học Tiểu học (lớp 1-5) hoặc THCS (lớp 6-9) tại Việt Nam, đi làm bận rộn, muốn con cải thiện tiếng Anh nhưng ngại lớp trung tâm đông (20-30 bé/lớp) khiến con không được kèm sát",
+    "dream_outcome": {
+      "headline": "Con tự tin giao tiếp tiếng Anh cơ bản và cải thiện điểm số ở trường chỉ sau 10 buổi học (khoảng 5 tuần)",
+      "timeframe": "10 buổi / ~5 tuần (2 buổi/tuần)",
+      "metric": "Chủ động nói được tối thiểu 10-15 câu giao tiếp cơ bản, tự tin phát biểu trong lớp học tiếng Anh ở trường"
+    },
+    "big_idea": "Lớp càng đông, con càng im lặng. Lớp nhỏ dưới 6 bé mới là nơi con thực sự mở miệng nói tiếng Anh.",
+    "pains": [
+      {
+        "rank": 1,
+        "text": "Con học tiếng Anh nhiều năm ở trường nhưng không nói được, không tự tin giao tiếp khi gặp người nước ngoài hoặc trong lớp",
+        "category": "emotional",
+        "cost": "Nhiều năm học nhưng không dùng được"
+      },
+      {
+        "rank": 2,
+        "text": "Lớp trung tâm 20-30 bé/lớp khiến con nhút nhát ít được gọi trả lời, giáo viên không kèm sát phát âm từng bé",
+        "category": "functional",
+        "cost": "Cả buổi học con chỉ nói được 1-2 câu"
+      },
+      {
+        "rank": 3,
+        "text": "Ba mẹ đi làm cả ngày, không có thời gian đưa đón con đến trung tâm, sợ con bỏ học giữa chừng vì bất tiện di chuyển",
+        "category": "functional",
+        "cost": "1-2 giờ/buổi tiền di chuyển + chờ đón con"
+      }
+    ],
+    "gains": [
+      { "rank": 1, "text": "Con tự tin phát âm và giao tiếp cơ bản trong các tình huống hàng ngày", "category": "required" },
+      { "rank": 2, "text": "Cải thiện điểm tiếng Anh ở trường, không còn sợ môn tiếng Anh", "category": "expected" },
+      { "rank": 3, "text": "Ba mẹ tiết kiệm thời gian đưa đón, con học ngay tại nhà qua Zoom", "category": "desired" }
+    ]
+  },
+
+  "audiences": [
+    {
+      "title": "Ba mẹ có con Tiểu học (lớp 1-5)",
+      "pain_signals": ["Con mới bắt đầu học tiếng Anh, còn rụt rè", "Sợ con mất hứng thú nếu lớp học nhàm chán hoặc quá đông"],
+      "use_cases": ["Xây nền tảng phát âm + phản xạ nghe nói từ sớm", "Học qua trò chơi, tương tác thay vì ngữ pháp khô khan"]
+    },
+    {
+      "title": "Ba mẹ có con THCS (lớp 6-9)",
+      "pain_signals": ["Con học tiếng Anh nhiều năm nhưng điểm không cải thiện", "Con ngại nói trước lớp đông, sợ sai bị bạn bè cười"],
+      "use_cases": ["Luyện phản xạ giao tiếp thực tế trong nhóm nhỏ an toàn", "Củng cố lại nền tảng đã học ở trường theo hướng ứng dụng"]
+    }
+  ],
+  "not_for": [
+    "Bé dưới 6 tuổi chưa biết đọc/viết cơ bản",
+    "Phụ huynh cần luyện thi chứng chỉ quốc tế (IELTS/TOEFL/Cambridge) bài bản",
+    "Người muốn học 1-kèm-1 hoàn toàn riêng tư, không học nhóm"
+  ],
+  "before_after": {
+    "before": [
+      "Con học tiếng Anh nhiều năm nhưng không nói được câu nào tự nhiên",
+      "Lớp đông, con ngồi im cả buổi không được gọi trả lời",
+      "Ba mẹ tốn thời gian đưa đón, con mệt vì di chuyển sau giờ học ở trường"
+    ],
+    "after": [
+      "Con chủ động nói tiếng Anh trong các tình huống giao tiếp cơ bản",
+      "Con được gọi trả lời, sửa phát âm trực tiếp mỗi buổi vì lớp chỉ tối đa 6 bé",
+      "Ba mẹ không cần đưa đón, con học ngay tại nhà qua Zoom, có thêm sách + phần mềm luyện thêm"
+    ]
+  },
+
+  "mechanism": {
+    "name": "Phương Pháp Lớp Nhỏ Tương Tác Trực Tiếp",
+    "definition": "Mỗi lớp tối đa 6 bé, mỗi bé được gọi trả lời và sửa phát âm trực tiếp tối thiểu 2 lần/buổi — khác hẳn lớp trung tâm 20-30 bé nơi phần lớn bé chỉ nghe mà không được nói",
+    "steps": [
+      "Kiểm tra trình độ đầu vào miễn phí (15 phút) để xếp bé vào nhóm phù hợp lứa tuổi/trình độ",
+      "Chia nhóm nhỏ tối đa 6 bé/lớp theo trình độ tương đồng",
+      "Học 10 buổi live qua Zoom, mỗi buổi 60-75 phút, 1 chủ đề giao tiếp cụ thể",
+      "Mỗi bé được gọi thực hành nói trực tiếp tối thiểu 2 lần/buổi, sửa phát âm tại chỗ",
+      "Giao bài luyện nói ngắn giữa các buổi để bé ôn lại",
+      "Tặng kèm ebook + phần mềm học tiếng Anh để bé tự luyện thêm ở nhà"
+    ]
+  },
+
+  "value_equation": {
+    "baseline": { "dream_outcome": 6, "perceived_likelihood": 5, "time_delay": 5, "effort_sacrifice": 5 },
+    "after_stack": { "dream_outcome": 8, "perceived_likelihood": 8, "time_delay": 7, "effort_sacrifice": 8 },
+    "weakest_lever": "perceived_likelihood"
+  },
+
+  "core_offer": {
+    "name": "Lớp Tiếng Anh Zoom Nhóm Nhỏ – 10 Buổi Giao Tiếp Thực Chiến",
+    "format": "cohort",
+    "scope": "10 buổi học live qua Zoom, nhóm tối đa 6 bé/lớp, 60-75 phút/buổi, khoảng 5 tuần (2 buổi/tuần)",
+    "value_vnd": 5000000,
+    "outcomes": [
+      { "title": "Phát âm chuẩn hơn", "description": "Được giáo viên sửa phát âm trực tiếp mỗi buổi thay vì chỉ nghe giảng" },
+      { "title": "Tự tin giao tiếp cơ bản", "description": "Thực hành nói tối thiểu 2 lần/buổi trong nhóm nhỏ an toàn, không sợ sai" },
+      { "title": "Cải thiện điểm ở trường", "description": "Củng cố lại nền tảng ngữ pháp + từ vựng đã học theo hướng ứng dụng thực tế" }
+    ]
+  },
+
+  "bonuses": [
+    {
+      "id": "B1",
+      "category": "skill_builder",
+      "name": "Trọn Bộ Sách Tiếng Anh Điện Tử",
+      "description": "Bộ sách điện tử (ebook) luyện từ vựng + ngữ pháp + bài tập theo từng buổi học, bé có thể ôn lại bất cứ lúc nào",
+      "value_vnd": 300000,
+      "boost_lever": "time_delay",
+      "is_fast_action": false
+    },
+    {
+      "id": "B2",
+      "category": "time_saver",
+      "name": "Phần Mềm Học Tiếng Anh Trọn Đời Miễn Phí",
+      "description": "License sử dụng trọn đời phần mềm luyện nghe-nói-từ vựng tại nhà, không phát sinh phí gia hạn",
+      "value_vnd": 2500000,
+      "boost_lever": "effort_sacrifice",
+      "is_fast_action": false
+    }
+  ],
+  "value_stack_total_vnd": 7800000,
+
+  "guarantee": {
+    "type": "conditional",
+    "duration_days": 14,
+    "wording": "Anh/chị cho bé học thử 2 buổi đầu tiên. Nếu bé không hứng thú hoặc không phù hợp, em hoàn lại 100% học phí, không cần lý do, không hỏi khó."
+  },
+
+  "urgency": [
+    {
+      "mechanism": "Mỗi lớp chỉ nhận tối đa 6 bé",
+      "reason": "Giữ đúng cam kết mỗi bé được gọi trả lời và sửa phát âm trực tiếp — quá 6 bé sẽ không kèm sát được như cam kết"
+    },
+    {
+      "mechanism": "Khai giảng lớp mới theo đợt, không mở liên tục",
+      "reason": "Số lớp mở giới hạn theo số giáo viên hiện có để đảm bảo chất lượng giảng dạy"
+    }
+  ],
+
+  "pricing": {
+    "currency": "VND",
+    "anchor_total_vnd": 7800000,
+    "tiers": [
+      {
+        "id": "standard",
+        "label": "Trọn Gói 10 Buổi",
+        "price_vnd": 3000000,
+        "price_display": "3.000.000đ",
+        "save_vs_anchor": 4800000,
+        "save_display": "Tiết kiệm 4.800.000đ so với tổng giá trị quà tặng",
+        "is_recommended": true,
+        "includes": ["core", "B1", "B2"],
+        "recommended_for": "Phụ huynh muốn con học đủ lộ trình 10 buổi, nhận trọn ebook + phần mềm học trọn đời miễn phí"
+      }
+    ],
+    "value_to_price_ratio": 2.6
+  },
+
+  "differentiators": [
+    "Nhóm tối đa 6 bé/lớp — không phải lớp đông 20-30 bé như trung tâm truyền thống",
+    "Học qua Zoom tại nhà — ba mẹ không tốn thời gian đưa đón",
+    "Tặng kèm ebook + phần mềm học trọn đời — không phát sinh chi phí học thêm sau khóa"
+  ],
+  "faq": [
+    { "q": "Bé nhà em học yếu tiếng Anh, có theo kịp lớp không?", "a": "Trước khi xếp lớp, bé sẽ được kiểm tra trình độ đầu vào miễn phí để xếp vào nhóm phù hợp trình độ và lứa tuổi, nên bé yếu vẫn theo kịp." },
+    { "q": "Nếu bé bận không học được 1 buổi thì sao?", "a": "Anh/chị báo trước, em sắp xếp học bù hoặc gửi lại buổi ghi hình để bé xem lại." },
+    { "q": "Phần mềm học trọn đời là phần mềm gì, có mất phí về sau không?", "a": "Đây là license sử dụng trọn đời, bé dùng luyện nghe-nói-từ vựng tại nhà, không phát sinh phí gia hạn hàng tháng/hàng năm." },
+    { "q": "Học phí có thể chia nhỏ trả góp không?", "a": "Với gói 3.000.000đ cho 10 buổi, anh/chị có thể trao đổi trực tiếp để chia làm 2 lần thanh toán nếu cần." }
+  ]
+}

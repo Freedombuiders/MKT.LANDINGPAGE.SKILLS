@@ -1,4 +1,6 @@
 .next/
+.vercel/
 node_modules/
 .env*.local
 npm-debug.log*
+.vercel

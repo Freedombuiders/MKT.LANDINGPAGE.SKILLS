@@ -1,0 +1,104 @@
+<Window x:Class="RevitLicense.UI.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RevitLicense — Tài khoản"
+        Height="480" Width="420"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        FontFamily="Segoe UI" FontSize="13">
+
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="32" />
+            <Setter Property="Padding" Value="6,4" />
+            <Setter Property="Margin" Value="0,2,0,8" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="PasswordBox">
+            <Setter Property="Height" Value="32" />
+            <Setter Property="Padding" Value="6,4" />
+            <Setter Property="Margin" Value="0,2,0,8" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Padding" Value="0,0,0,0" />
+            <Setter Property="Margin" Value="0,4,0,0" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="36" />
+            <Setter Property="Margin" Value="0,12,0,0" />
+            <Setter Property="Background" Value="#2563EB" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Cursor" Value="Hand" />
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Text="Tài khoản RevitLicense"
+                   FontSize="18" FontWeight="Bold"
+                   Margin="0,0,0,12" />
+
+        <TabControl Grid.Row="1" x:Name="Tabs">
+
+            <!-- ============ Đăng nhập ============ -->
+            <TabItem Header="Đăng nhập">
+                <StackPanel Margin="4,12,4,4">
+                    <Label Content="Email" />
+                    <TextBox x:Name="LoginEmail" />
+                    <Label Content="Mật khẩu" />
+                    <PasswordBox x:Name="LoginPassword" />
+                    <Button x:Name="LoginButton" Content="Đăng nhập" Click="OnLoginClick" />
+                </StackPanel>
+            </TabItem>
+
+            <!-- ============ Đăng ký ============ -->
+            <TabItem Header="Đăng ký">
+                <StackPanel Margin="4,12,4,4">
+                    <Label Content="Họ và tên" />
+                    <TextBox x:Name="RegFullName" />
+                    <Label Content="Số điện thoại" />
+                    <TextBox x:Name="RegPhone" />
+                    <Label Content="Email" />
+                    <TextBox x:Name="RegEmail" />
+                    <Label Content="Mật khẩu (tối thiểu 6 ký tự)" />
+                    <PasswordBox x:Name="RegPassword" />
+                    <Button x:Name="RegisterButton" Content="Đăng ký" Click="OnRegisterClick" />
+                </StackPanel>
+            </TabItem>
+
+            <!-- ============ Quên mật khẩu ============ -->
+            <TabItem Header="Quên mật khẩu">
+                <StackPanel Margin="4,12,4,4">
+                    <TextBlock TextWrapping="Wrap" Margin="0,0,0,8" Foreground="#555"
+                               Text="Nhập email, hệ thống sẽ gửi link đặt lại mật khẩu. Anh/chị đặt lại mật khẩu trên trang web rồi quay lại đăng nhập." />
+                    <Label Content="Email" />
+                    <TextBox x:Name="RecoverEmail" />
+                    <Button x:Name="RecoverButton" Content="Gửi link đặt lại" Click="OnRecoverClick" />
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+
+        <!-- ============ Status / busy row ============ -->
+        <StackPanel Grid.Row="2" Margin="0,12,0,0">
+            <TextBlock x:Name="StatusText"
+                       TextWrapping="Wrap"
+                       Foreground="#B91C1C"
+                       Text="" />
+            <ProgressBar x:Name="Busy"
+                         Height="4" Margin="0,8,0,0"
+                         IsIndeterminate="True"
+                         Visibility="Collapsed" />
+        </StackPanel>
+    </Grid>
+</Window>

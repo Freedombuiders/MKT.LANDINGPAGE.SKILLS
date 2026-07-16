@@ -1,54 +1,100 @@
 # Secrets — never commit
-.env
-.env.local
+
+
+
 .env*.local
+
 **/.env.local
+
 **/.env*.local
+
 .claude/settings.local.json
+
 .mcp.json
 
-# Generated artifacts (per user request)
-output/
+
 
 # Dependencies
+
 node_modules/
+
 **/node_modules/
 
+
+
 # Next.js build
+
 .next/
+
 **/.next/
+
 out/
+
 build/
 
+
+
 # Vercel
+
 .vercel/
+
 **/.vercel/
 
+
+
 # Logs
+
 *.log
+
 npm-debug.log*
+
 yarn-debug.log*
+
 yarn-error.log*
 
+
+
 # OS / editor cruft
+
 .DS_Store
+
 Thumbs.db
+
 *.swp
+
 *.swo
 
+
+
 # Cache
+
 .turbo/
+
 .cache/
+
 /workspace/data/CAO XÀ LÁ
 
+
+
 # Claude Code agent worktrees (transient)
+
 .claude/worktrees/
 
+
+
 # Python cache
+
 __pycache__/
+
 *.pyc
+
 *.pyo
+
 *.pyd
+
 .pytest_cache/
+
 .ipynb_checkpoints/
+
 .vercel
+config.bat

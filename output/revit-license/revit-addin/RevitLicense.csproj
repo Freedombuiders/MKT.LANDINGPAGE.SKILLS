@@ -1,0 +1,90 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    RevitLicense.csproj — SDK-style .NET Framework 4.8 class library for Revit 2024.
+
+    SDK-style is used so that WPF (UseWPF) + XAML markup compilation work without
+    hand-importing the legacy WinFX targets, while still targeting net48.
+
+    IMPORTANT (Windows dev): the Revit API assemblies are referenced via HintPath.
+    Adjust $(RevitApiDir) to match your Revit install if it differs from the
+    default, e.g.:  msbuild RevitLicense.csproj /p:RevitApiDir="D:\Revit 2024"
+
+    Build on Windows + Visual Studio 2022. NOT built on macOS (source only).
+  -->
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <OutputType>Library</OutputType>
+    <RootNamespace>RevitLicense</RootNamespace>
+    <AssemblyName>RevitLicense</AssemblyName>
+    <LangVersion>8.0</LangVersion>
+    <Deterministic>true</Deterministic>
+
+    <!-- WPF for the login dialog. -->
+    <UseWPF>true</UseWPF>
+
+    <!-- We declare references/resources explicitly below; disable globbing so
+         nothing unexpected gets compiled. -->
+    <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+
+    <!-- TODO(Windows dev): set this to your Revit install if different. -->
+    <RevitApiDir Condition=" '$(RevitApiDir)' == '' ">C:\Program Files\Autodesk\Revit 2024</RevitApiDir>
+  </PropertyGroup>
+
+  <!-- ============================ Revit API ============================ -->
+  <!-- CopyLocal (Private) MUST be false: Revit loads its own copies. -->
+  <ItemGroup>
+    <Reference Include="RevitAPI">
+      <HintPath>$(RevitApiDir)\RevitAPI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="RevitAPIUI">
+      <HintPath>$(RevitApiDir)\RevitAPIUI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <!-- ============================ Framework refs ============================ -->
+  <!-- These BCL assemblies are not referenced by default for net48 in SDK-style. -->
+  <ItemGroup>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Management" />          <!-- WMI: Win32_Processor -->
+    <Reference Include="System.Security" />            <!-- ProtectedData / DPAPI -->
+    <Reference Include="System.Runtime.Serialization" /><!-- DataContractJsonSerializer -->
+  </ItemGroup>
+
+  <!-- ============================ NuGet ============================ -->
+  <ItemGroup>
+    <PackageReference Include="BouncyCastle.Cryptography" Version="2.4.0" />
+  </ItemGroup>
+
+  <!-- ============================ Embedded public key ============================ -->
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\public-key.pem">
+      <LogicalName>RevitLicense.Resources.public-key.pem</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <!--
+    Notes:
+    - SDK-style auto-includes *.cs (EnableDefaultCompileItems) and the WPF
+      Page/.xaml.cs pairing (UseWPF). No explicit <Compile>/<Page> needed.
+    - Properties/AssemblyInfo.cs is kept (GenerateAssemblyInfo=false) so the
+      manifest GUID/version stay under your control.
+
+    Optional post-build deploy to the Revit Addins folder for F5 debugging —
+    uncomment + adjust on Windows:
+
+  <Target Name="DeployAddin" AfterTargets="Build">
+    <PropertyGroup>
+      <RevitAddinsDir>$(AppData)\Autodesk\Revit\Addins\2024</RevitAddinsDir>
+    </PropertyGroup>
+    <Copy SourceFiles="$(ProjectDir)RevitLicense.addin" DestinationFolder="$(RevitAddinsDir)" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(RevitAddinsDir)\RevitLicense" />
+    <Copy SourceFiles="$(TargetDir)BouncyCastle.Cryptography.dll" DestinationFolder="$(RevitAddinsDir)\RevitLicense" />
+  </Target>
+  -->
+
+</Project>

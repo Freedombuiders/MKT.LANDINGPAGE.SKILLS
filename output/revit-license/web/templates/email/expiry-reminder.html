@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Giấy phép sắp hết hạn</title>
+</head>
+<body style="margin:0; padding:0; background-color:#f4f5f7; font-family:Arial, Helvetica, sans-serif; color:#1f2937;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f5f7; padding:24px 12px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px; width:100%; background-color:#ffffff; border-radius:12px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,0.08);">
+          <!-- Header -->
+          <tr>
+            <td style="background-color:#0f172a; padding:28px 32px;">
+              <h1 style="margin:0; font-size:20px; line-height:1.3; color:#ffffff; font-weight:700;">Revit Add-in License</h1>
+            </td>
+          </tr>
+          <!-- Alert banner -->
+          <tr>
+            <td style="background-color:#fff7ed; padding:14px 32px; border-bottom:1px solid #fed7aa;">
+              <p style="margin:0; font-size:14px; line-height:1.5; color:#c2410c; font-weight:600;">
+                Giấy phép của anh/chị sẽ hết hạn trong {{daysLeft}} ngày.
+              </p>
+            </td>
+          </tr>
+          <!-- Body -->
+          <tr>
+            <td style="padding:32px;">
+              <p style="margin:0 0 16px; font-size:15px; line-height:1.6; color:#374151;">
+                Xin chào <strong>{{fullName}}</strong>,
+              </p>
+              <p style="margin:0 0 20px; font-size:15px; line-height:1.6; color:#374151;">
+                Đây là email nhắc anh/chị rằng giấy phép sử dụng add-in sắp đến hạn. Để không gián đoạn công việc trên Revit, anh/chị nên gia hạn trước ngày hết hạn.
+              </p>
+              <!-- Info card -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f8fafc; border:1px solid #e5e7eb; border-radius:10px; margin:0 0 24px;">
+                <tr>
+                  <td style="padding:16px 20px; border-bottom:1px solid #e5e7eb;">
+                    <span style="display:block; font-size:12px; color:#6b7280; text-transform:uppercase; letter-spacing:0.04em;">Gói sử dụng</span>
+                    <span style="display:block; font-size:16px; font-weight:700; color:#0f172a; margin-top:4px;">{{planName}}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:16px 20px;">
+                    <span style="display:block; font-size:12px; color:#6b7280; text-transform:uppercase; letter-spacing:0.04em;">Ngày hết hạn</span>
+                    <span style="display:block; font-size:16px; font-weight:700; color:#c2410c; margin-top:4px;">{{expiresAt}}</span>
+                  </td>
+                </tr>
+              </table>
+              <!-- CTA -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 24px;">
+                <tr>
+                  <td align="center">
+                    <a href="{{renewUrl}}" style="display:inline-block; background-color:#2563eb; color:#ffffff; text-decoration:none; font-size:16px; font-weight:700; padding:14px 36px; border-radius:8px;">Gia hạn ngay</a>
+                  </td>
+                </tr>
+              </table>
+              <p style="margin:0; font-size:14px; line-height:1.6; color:#6b7280;">
+                Nếu nút trên không bấm được, anh/chị copy đường dẫn sau vào trình duyệt:<br />
+                <a href="{{renewUrl}}" style="color:#2563eb; word-break:break-all;">{{renewUrl}}</a>
+              </p>
+            </td>
+          </tr>
+          <!-- Footer -->
+          <tr>
+            <td style="padding:20px 32px; background-color:#f8fafc; border-top:1px solid #e5e7eb;">
+              <p style="margin:0; font-size:12px; line-height:1.6; color:#9ca3af;">
+                Đây là email nhắc gia hạn liên quan trực tiếp đến giấy phép của anh/chị.
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

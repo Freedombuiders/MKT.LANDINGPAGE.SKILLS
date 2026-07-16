@@ -2,12 +2,15 @@
 
 import { FormEvent, useState } from "react";
 import { ArrowRight, Headphones, Loader2, Mail, UserRound } from "lucide-react";
+import { useRouter } from "next/navigation";
 
-type SubmitStatus = "idle" | "loading" | "success" | "error";
+type SubmitStatus = "idle" | "loading" | "error";
 
-export function LeadForm() {
+export function LeadForm({ paymentAmount }: { paymentAmount: number }) {
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [message, setMessage] = useState("");
+  const router = useRouter();
+  const amountLabel = new Intl.NumberFormat("vi-VN").format(paymentAmount);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -18,7 +21,7 @@ export function LeadForm() {
     const formData = new FormData(form);
 
     try {
-      const response = await fetch("/api/lead", {
+      const response = await fetch("/api/checkout", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
@@ -27,19 +30,13 @@ export function LeadForm() {
           email: formData.get("email"),
         }),
       });
-      const result = (await response.json()) as { error?: string; mode?: "preview" | "connected" };
+      const result = (await response.json()) as { error?: string; orderId?: string };
 
-      if (!response.ok) {
-        throw new Error(result.error || "Chưa thể gửi thông tin lúc này.");
+      if (!response.ok || !result.orderId) {
+        throw new Error(result.error || "Chưa thể tạo đơn thanh toán lúc này.");
       }
 
-      setStatus("success");
-      setMessage(
-        result.mode === "preview"
-          ? "Form đã hoạt động ở chế độ xem trước. Kết nối CRM trước khi chạy quảng cáo."
-          : "Đã nhận thông tin. Đội ngũ sẽ liên hệ để kiểm tra trình độ cho bé.",
-      );
-      form.reset();
+      router.push(`/checkout/${result.orderId}`);
     } catch (error) {
       setStatus("error");
       setMessage(error instanceof Error ? error.message : "Có lỗi xảy ra. Anh/chị vui lòng thử lại.");
@@ -47,7 +44,7 @@ export function LeadForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="mt-7 space-y-4">
+    <form onSubmit={handleSubmit} aria-busy={status === "loading"} className="mt-7 space-y-4">
       <div>
         <label htmlFor="name" className="mb-1.5 block text-sm font-semibold text-slate-800">
           Họ tên phụ huynh
@@ -114,29 +111,24 @@ export function LeadForm() {
         {status === "loading" ? (
           <>
             <Loader2 aria-hidden="true" className="size-5 animate-spin" />
-            Đang gửi thông tin...
+            Đang tạo đơn...
           </>
         ) : (
           <>
-            Đăng ký kiểm tra miễn phí
+            Đăng ký & thanh toán {amountLabel}đ
             <ArrowRight aria-hidden="true" className="size-5" />
           </>
         )}
       </button>
 
       {message ? (
-        <p
-          role="status"
-          className={`rounded-xl px-4 py-3 text-sm font-medium ${
-            status === "success" ? "bg-emerald-50 text-emerald-800" : "bg-red-50 text-red-700"
-          }`}
-        >
+        <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
           {message}
         </p>
       ) : null}
 
       <p className="text-center text-xs leading-5 text-slate-500">
-        Anh/chị không cần thanh toán ở bước này. Thông tin chỉ dùng để tư vấn xếp lớp.
+        Bấm đăng ký để chuyển sang VietQR. Hệ thống tự xác nhận khi tiền vào.
       </p>
     </form>
   );

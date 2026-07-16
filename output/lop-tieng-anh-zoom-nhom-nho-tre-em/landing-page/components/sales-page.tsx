@@ -32,17 +32,17 @@ const outcomes = [
 ];
 
 const steps = [
-  { title: "Kiểm tra đầu vào miễn phí", text: "15 phút để hiểu trình độ hiện tại và xếp bé vào nhóm phù hợp lứa tuổi." },
+  { title: "Kiểm tra đầu vào", text: "15 phút để hiểu trình độ hiện tại và xếp bé vào nhóm phù hợp lứa tuổi." },
   { title: "Ghép nhóm tối đa 6 bé", text: "Các bé có trình độ tương đồng, đủ bạn để tương tác nhưng không ai bị bỏ quên." },
   { title: "Học live 10 buổi qua Zoom", text: "Mỗi buổi 60–75 phút, hai buổi mỗi tuần, tập trung vào một chủ đề giao tiếp." },
   { title: "Luyện nói và sửa ngay tại chỗ", text: "Giáo viên gọi từng bé thực hành, sửa phát âm và giao bài luyện ngắn giữa các buổi." },
 ];
 
 const faqs = [
-  { question: "Bé nhà em học yếu tiếng Anh, có theo kịp lớp không?", answer: "Có. Trước khi xếp lớp, bé được kiểm tra trình độ đầu vào miễn phí để vào đúng nhóm theo năng lực và lứa tuổi." },
+  { question: "Bé nhà em học yếu tiếng Anh, có theo kịp lớp không?", answer: "Có. Trước khi xếp lớp, bé được kiểm tra trình độ đầu vào để vào đúng nhóm theo năng lực và lứa tuổi." },
   { question: "Nếu bé bận không học được một buổi thì sao?", answer: "Anh/chị chỉ cần báo trước. Giáo viên sẽ hỗ trợ phương án học bù hoặc gửi lại nội dung ghi hình để bé xem lại." },
   { question: "Phần mềm học trọn đời có mất phí về sau không?", answer: "Không. Đây là license sử dụng trọn đời để bé luyện nghe, nói và từ vựng tại nhà, không thu phí gia hạn định kỳ." },
-  { question: "Học phí có thể chia thành hai lần thanh toán không?", answer: "Có thể. Với gói 3.000.000đ cho 10 buổi, anh/chị có thể trao đổi trực tiếp để chia thành hai lần thanh toán." },
+  { question: "Học phí có thể chia thành hai lần thanh toán không?", answer: "Anh/chị vui lòng thanh toán theo số tiền hiện trên trang VietQR. Nếu cần chia đợt, hãy trao đổi với đội ngũ trước khi tạo đơn." },
 ];
 
 function CtaButton({ label, className = "" }: { label: string; className?: string }) {
@@ -63,7 +63,10 @@ function SectionHeading({ eyebrow, title, description, align = "center" }: { eye
   );
 }
 
-export function SalesPage() {
+export function SalesPage({ paymentAmount }: { paymentAmount: number }) {
+  const paymentAmountLabel = new Intl.NumberFormat("vi-VN").format(paymentAmount);
+  const isTestPayment = paymentAmount === 3_000;
+
   return (
     <main>
       <SiteEffects />
@@ -80,7 +83,7 @@ export function SalesPage() {
             <a className="cursor-pointer transition-colors hover:text-sky-deep" href="#lo-trinh">Lộ trình</a>
             <a className="cursor-pointer transition-colors hover:text-sky-deep" href="#hoc-phi">Học phí</a>
           </div>
-          <CtaButton label="Kiểm tra miễn phí" className="hidden sm:inline-flex" />
+          <CtaButton label="Đăng ký & thanh toán" className="hidden sm:inline-flex" />
           <a href="#dang-ky" aria-label="Đi đến biểu mẫu đăng ký" className="grid size-11 cursor-pointer place-items-center rounded-full bg-orange-cta text-white transition-colors hover:bg-orange-dark sm:hidden"><ArrowRight aria-hidden="true" className="size-5" /></a>
         </nav>
       </header>
@@ -95,7 +98,7 @@ export function SalesPage() {
             <h1 className="text-balance text-[2.7rem] font-semibold leading-[1.04] tracking-[-0.025em] text-slate-950 sm:text-6xl lg:text-[4.15rem]">Lớp càng đông, <span className="text-sky-deep">con càng im lặng.</span></h1>
             <p className="mt-6 max-w-2xl text-pretty text-lg leading-8 text-slate-700 sm:text-xl">Trong nhóm tối đa 6 bé, con có thời gian thực sự để mở lời, được sửa phát âm và xây phản xạ giao tiếp — ngay tại nhà, không cần đưa đón.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <CtaButton label="Đăng ký kiểm tra đầu vào miễn phí" />
+              <CtaButton label="Đăng ký & thanh toán ngay" />
               <a href="#lo-trinh" className="inline-flex min-h-12 cursor-pointer items-center justify-center gap-2 rounded-full px-5 py-3 font-bold text-sky-ink transition-colors duration-200 hover:bg-white"><Video aria-hidden="true" className="size-5" />Xem cách lớp học vận hành</a>
             </div>
             <div className="mt-8 grid gap-3 text-sm text-slate-700 sm:grid-cols-3">
@@ -143,7 +146,7 @@ export function SalesPage() {
 
       <section id="lo-trinh" className="bg-sky-wash py-20 sm:py-28">
         <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
-          <div className="lg:sticky lg:top-28 lg:self-start"><SectionHeading align="left" eyebrow="Phương pháp lớp nhỏ tương tác trực tiếp" title="Một lộ trình đơn giản, để con có cơ hội nói thật" description="Không chạy theo số lượng học viên. Mỗi bước đều nhằm bảo đảm bé được học đúng trình độ và nhận phản hồi đủ thường xuyên." /><CtaButton label="Giữ chỗ kiểm tra miễn phí" className="mt-7" /></div>
+          <div className="lg:sticky lg:top-28 lg:self-start"><SectionHeading align="left" eyebrow="Phương pháp lớp nhỏ tương tác trực tiếp" title="Một lộ trình đơn giản, để con có cơ hội nói thật" description="Không chạy theo số lượng học viên. Mỗi bước đều nhằm bảo đảm bé được học đúng trình độ và nhận phản hồi đủ thường xuyên." /><CtaButton label="Đăng ký khóa học" className="mt-7" /></div>
           <ol className="relative space-y-5 before:absolute before:bottom-10 before:left-7 before:top-10 before:w-px before:bg-sky-200">
             {steps.map((step, index) => <li key={step.title} className="card-shadow relative flex gap-5 rounded-3xl border border-sky-100 bg-white p-6 sm:p-8"><span className="relative z-10 grid size-14 shrink-0 place-items-center rounded-2xl bg-sky-deep font-heading text-xl font-semibold text-white">{String(index + 1).padStart(2, "0")}</span><div><h3 className="text-xl font-semibold text-slate-950 sm:text-2xl">{step.title}</h3><p className="mt-2 leading-7 text-slate-600">{step.text}</p></div></li>)}
           </ol>
@@ -178,7 +181,7 @@ export function SalesPage() {
               <div><p className="font-heading text-2xl font-semibold text-slate-950 sm:text-3xl">English Zoom Kids · 10 buổi</p><ul className="mt-7 space-y-4">
                 {["10 buổi học live qua Zoom, 60–75 phút/buổi", "Nhóm tối đa 6 bé, xếp theo trình độ tương đồng", "Mỗi bé được gọi thực hành và sửa phát âm trực tiếp", "Trọn bộ ebook theo từng buổi học", "Phần mềm học tiếng Anh trọn đời"].map((item) => <li key={item} className="flex gap-3 text-slate-700"><CheckCircle2 aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-emerald-600" /><span>{item}</span></li>)}
               </ul></div>
-              <div className="rounded-3xl bg-sky-wash p-6 text-center sm:p-8"><p className="text-sm font-semibold text-slate-500">Tổng giá trị</p><p className="mt-1 text-xl font-bold text-slate-500 line-through">7.800.000đ</p><p className="mt-4 text-sm font-bold uppercase tracking-wider text-sky-deep">Học phí trọn gói</p><p className="font-heading text-5xl font-semibold tracking-tight text-slate-950">3.000.000đ</p><p className="mt-2 text-sm font-semibold text-emerald-700">Tiết kiệm 4.800.000đ</p><CtaButton label="Giữ một suất cho bé" className="mt-6 w-full px-4" /><p className="mt-3 text-xs leading-5 text-slate-500">Có thể trao đổi để chia thành 2 lần thanh toán</p></div>
+              <div className="rounded-3xl bg-sky-wash p-6 text-center sm:p-8"><p className="text-sm font-semibold text-slate-500">Tổng giá trị</p><p className="mt-1 text-xl font-bold text-slate-500 line-through">7.800.000đ</p><p className="mt-4 text-sm font-bold uppercase tracking-wider text-sky-deep">Giá thanh toán hiện tại</p><p className="font-heading text-5xl font-semibold tracking-tight text-slate-950">{paymentAmountLabel}đ</p><p className="mt-2 text-sm font-semibold text-emerald-700">{isTestPayment ? "Giá thật đang dùng để kiểm thử thanh toán" : "Thanh toán một lần qua VietQR"}</p><CtaButton label="Giữ một suất cho bé" className="mt-6 w-full px-4" /><p className="mt-3 text-xs leading-5 text-slate-500">Hệ thống xác nhận tự động ngay khi tiền vào tài khoản</p></div>
             </div>
           </div>
           <div className="mx-auto mt-8 flex max-w-3xl flex-col items-center gap-5 rounded-3xl border border-emerald-200 bg-emerald-50 p-7 text-center sm:flex-row sm:text-left"><span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-white text-emerald-700 shadow-sm"><ShieldCheck aria-hidden="true" className="size-7" /></span><div><h3 className="text-xl font-semibold text-emerald-950">Học thử 2 buổi, hoàn 100% nếu không phù hợp</h3><p className="mt-1 leading-7 text-emerald-800">Trong 14 ngày đầu, nếu bé không hứng thú hoặc không phù hợp, anh/chị được hoàn lại toàn bộ học phí, không hỏi khó.</p></div></div>
@@ -195,15 +198,15 @@ export function SalesPage() {
       <section id="dang-ky" className="relative overflow-hidden bg-sky-wash py-20 sm:py-28">
         <div className="absolute -left-28 bottom-0 size-80 rounded-full bg-sky-200/60 blur-3xl" aria-hidden="true" /><div className="absolute -right-28 top-0 size-80 rounded-full bg-orange-100/70 blur-3xl" aria-hidden="true" />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <div><p className="text-sm font-bold uppercase tracking-[0.16em] text-sky-deep">Bước đầu chưa cần thanh toán</p><h2 className="mt-3 text-balance text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">Kiểm tra 15 phút để biết bé nên bắt đầu từ đâu</h2><p className="mt-5 text-lg leading-8 text-slate-600">Để lại thông tin, đội ngũ sẽ liên hệ trao đổi lịch kiểm tra và gợi ý nhóm phù hợp với lứa tuổi, trình độ của bé.</p><div className="mt-8 space-y-4">
-            {[{ icon: Clock3, text: "Kiểm tra đầu vào khoảng 15 phút" }, { icon: Users, text: "Xếp nhóm theo năng lực tương đồng" }, { icon: HeartHandshake, text: "Tư vấn rõ trước khi đăng ký khóa" }].map(({ icon: Icon, text }) => <div key={text} className="flex items-center gap-3 font-semibold text-slate-700"><span className="grid size-10 place-items-center rounded-xl bg-white text-sky-deep shadow-sm"><Icon aria-hidden="true" className="size-5" /></span><span>{text}</span></div>)}
+          <div><p className="text-sm font-bold uppercase tracking-[0.16em] text-sky-deep">Đăng ký và thanh toán ngay</p><h2 className="mt-3 text-balance text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">Giữ suất cho bé bằng VietQR</h2><p className="mt-5 text-lg leading-8 text-slate-600">Điền đúng ba thông tin, hệ thống tạo mã đơn và chuyển anh/chị sang trang thanh toán VietinBank. Khi tiền vào, đơn được xác nhận tự động.</p><div className="mt-8 space-y-4">
+            {[{ icon: Clock3, text: "Tạo mã VietQR ngay sau khi đăng ký" }, { icon: Users, text: "Giữ thông tin để xếp nhóm phù hợp" }, { icon: HeartHandshake, text: "Tự động xác nhận khi thanh toán thành công" }].map(({ icon: Icon, text }) => <div key={text} className="flex items-center gap-3 font-semibold text-slate-700"><span className="grid size-10 place-items-center rounded-xl bg-white text-sky-deep shadow-sm"><Icon aria-hidden="true" className="size-5" /></span><span>{text}</span></div>)}
           </div></div>
-          <div className="soft-shadow rounded-[2rem] border border-sky-100 bg-white p-6 sm:p-9"><div className="flex items-center gap-3"><span className="grid size-12 place-items-center rounded-2xl bg-orange-100 text-orange-dark"><Gift aria-hidden="true" className="size-6" /></span><div><p className="font-heading text-2xl font-semibold text-slate-950">Đăng ký kiểm tra miễn phí</p><p className="text-sm text-slate-500">Chỉ cần đúng 3 thông tin</p></div></div><LeadForm /></div>
+          <div className="soft-shadow rounded-[2rem] border border-sky-100 bg-white p-6 sm:p-9"><div className="flex items-center gap-3"><span className="grid size-12 place-items-center rounded-2xl bg-orange-100 text-orange-dark"><Gift aria-hidden="true" className="size-6" /></span><div><p className="font-heading text-2xl font-semibold text-slate-950">Đăng ký khóa học</p><p className="text-sm text-slate-500">Thanh toán hiện tại: {paymentAmountLabel}đ</p></div></div><LeadForm paymentAmount={paymentAmount} /></div>
         </div>
       </section>
 
       <footer className="bg-slate-950 pb-28 pt-12 text-slate-300 sm:pb-12"><div className="mx-auto flex max-w-7xl flex-col gap-7 px-5 sm:px-8 lg:flex-row lg:items-center lg:justify-between"><div className="flex items-center gap-3"><span className="grid size-10 place-items-center rounded-xl bg-sky-brand text-white"><MessageCircle aria-hidden="true" className="size-5" /></span><div><p className="font-heading text-xl font-semibold text-white">English Zoom Kids</p><p className="text-sm text-slate-400">Con tự tin nói, ba mẹ không cần đưa đón.</p></div></div><p className="max-w-xl text-sm leading-6 text-slate-400">Kết quả học tập phụ thuộc vào trình độ đầu vào, mức độ tham gia và việc luyện tập của từng bé. Chương trình đặt mục tiêu hỗ trợ, không cam kết mọi học viên đạt kết quả giống nhau.</p></div></footer>
-      <div className="fixed bottom-3 left-3 right-3 z-40 sm:hidden"><CtaButton label="Kiểm tra đầu vào miễn phí" className="w-full border border-orange-300" /></div>
+      <div className="fixed bottom-3 left-3 right-3 z-40 sm:hidden"><CtaButton label="Đăng ký & thanh toán" className="w-full border border-orange-300" /></div>
     </main>
   );
 }
